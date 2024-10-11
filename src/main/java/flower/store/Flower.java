@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Getter @Setter @AllArgsConstructor @NoArgsConstructor
 public class Flower {
     private FlowerColor color;
     private FlowerType type;
@@ -16,7 +16,7 @@ public class Flower {
         return color.getCode();
     }
 
-    public Flower (Flower flower) {
+    public Flower(Flower flower) {
         this.color = flower.color;
         this.type = flower.type;
         this.price = flower.price;
