@@ -14,14 +14,14 @@ public class FlowerBucketTest {
     private static final Random RANDOM_GENERATOR = new Random();
     private static final int MAX_QUANTITY = 1000;
     private static final int MAX_PRICE = 100;
-    private static final int PRICE1 = 10;
-    private static final int AMOUNT1 = 5;
-    private static final int EXPECTED1 = 50;
-    private static final int PRICE2 = 15;
-    private static final int AMOUNT2 = 3;
-    private static final int PRICE3 = 7;
-    private static final int AMOUNT3 = 4;
-    private static final int EXPECTED2 = 2;
+    private static final int PRICE_ONE = 10;
+    private static final int AMOUNT_ONE = 5;
+    private static final int EXPECTED_ONE = 50;
+    private static final int PRICE_TWO = 15;
+    private static final int AMOUNT_TWO = 3;
+    private static final int PRICE_THREE = 7;
+    private static final int AMOUNT_THREE = 4;
+    private static final int EXPECTED_TWO = 2;
 
     private FlowerBucket flowerBucket;
 
@@ -44,25 +44,25 @@ public class FlowerBucketTest {
     @Test
     public void testAddFlowerPack() {
         Flower flower = new Rose();
-        flower.setPrice(PRICE1);
-        FlowerPack flowerPack = new FlowerPack(flower, AMOUNT1);
+        flower.setPrice(PRICE_ONE);
+        FlowerPack flowerPack = new FlowerPack(flower, AMOUNT_ONE);
         flowerBucket.add(flowerPack);
-        Assertions.assertEquals(EXPECTED1, flowerBucket.getPrice());
+        Assertions.assertEquals(EXPECTED_ONE, flowerBucket.getPrice());
     }
 
     @Test
     public void testGetAllFlowerTypes() {
         Flower rose = new Rose();
-        rose.setPrice(PRICE2);
-        FlowerPack rosePack = new FlowerPack(rose, AMOUNT2);
+        rose.setPrice(PRICE_TWO);
+        FlowerPack rosePack = new FlowerPack(rose, AMOUNT_TWO);
         Flower chamomile = new Flower();
-        chamomile.setPrice(PRICE3);
+        chamomile.setPrice(PRICE_THREE);
         chamomile.setType(FlowerType.CHAMOMILE);
-        FlowerPack chamomilePack = new FlowerPack(chamomile, AMOUNT3);
+        FlowerPack chamomilePack = new FlowerPack(chamomile, AMOUNT_THREE);
         flowerBucket.add(rosePack);
         flowerBucket.add(chamomilePack);
         List<FlowerType> flowerTypes = flowerBucket.getAllFlowerTypes();
-        Assertions.assertEquals(EXPECTED2, flowerTypes.size());
+        Assertions.assertEquals(EXPECTED_TWO, flowerTypes.size());
         Assertions.assertTrue(flowerTypes.contains(FlowerType.ROSE));
         Assertions.assertTrue(flowerTypes.contains(FlowerType.CHAMOMILE));
     }

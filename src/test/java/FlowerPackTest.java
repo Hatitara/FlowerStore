@@ -10,8 +10,8 @@ public class FlowerPackTest {
 
     private static final double PRICE_PER_FLOWER = 5.0;
     private static final int QUANTITY = 10;
-    private static final int NUMBER1 = 15;
-    private static final int NUMBER2 = 8;
+    private static final int NUMBER_ONE = 15;
+    private static final int NUMBER_TWO = 8;
     private Flower flower;
     private FlowerPack flowerPack;
 
@@ -39,10 +39,10 @@ public class FlowerPackTest {
         Assertions.assertEquals(flower, flowerPack.getFlower());
         Assertions.assertEquals(QUANTITY, flowerPack.getCount());
         Flower newFlower = new Rose();
-        newFlower.setPrice(NUMBER2);
+        newFlower.setPrice(NUMBER_TWO);
         flowerPack.setFlower(newFlower);
-        flowerPack.setCount(NUMBER1);
+        flowerPack.setCount(NUMBER_ONE);
         Assertions.assertEquals(newFlower, flowerPack.getFlower());
-        Assertions.assertEquals(NUMBER1, flowerPack.getCount());
+        Assertions.assertEquals(NUMBER_ONE, flowerPack.getCount());
     }
 }

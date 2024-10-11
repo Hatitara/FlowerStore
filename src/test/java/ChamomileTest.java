@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
 public class ChamomileTest {
-    Double TEST = 5.0;
+    private static final double TEST_VALUE = 5.0;
 
     @Test
     public void testDefaultConstructor() {
@@ -18,12 +18,13 @@ public class ChamomileTest {
     public void testCopyConstructor() {
         Flower originalFlower = new Flower();
         originalFlower.setColor(FlowerColor.WHITE);
-        originalFlower.setPrice(TEST);
+        originalFlower.setPrice(TEST_VALUE);
         originalFlower.setType(FlowerType.CHAMOMILE);
         Chamomile chamomile = new Chamomile(originalFlower);
         Assertions.assertEquals(FlowerType.CHAMOMILE, chamomile.getType());
-        Assertions.assertEquals(FlowerColor.WHITE.getCode(), chamomile.getColor());
-        Assertions.assertEquals(TEST, chamomile.getPrice());
+        Assertions.assertEquals(FlowerColor.WHITE.getCode(),
+                chamomile.getColor());
+        Assertions.assertEquals(TEST_VALUE, chamomile.getPrice());
     }
 
     @Test
