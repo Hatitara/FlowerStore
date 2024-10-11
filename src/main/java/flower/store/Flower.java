@@ -12,10 +12,6 @@ public class Flower {
     private double sepalLength;
     private double price;
 
-    public String getColor() {
-        return color.getCode();
-    }
-
     public Flower(Flower flower) {
         this.color = flower.color;
         this.type = flower.type;
@@ -23,4 +19,7 @@ public class Flower {
         this.sepalLength = flower.sepalLength;
     }
 
+    public String getColor() {
+        return color.getCode();
+    }
 }

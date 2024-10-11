@@ -10,7 +10,7 @@ public class FlowerPack {
     private Flower flower;
     private int count;
 
-    public double getPrice(){
+    public double getPrice() {
         return flower.getPrice() * count;
     }
 

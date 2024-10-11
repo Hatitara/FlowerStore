@@ -1,4 +1,8 @@
-import flower.store.*;
+import flower.store.Flower;
+import flower.store.FlowerBucket;
+import flower.store.FlowerPack;
+import flower.store.Rose;
+import flower.store.FlowerType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
@@ -10,6 +14,14 @@ public class FlowerBucketTest {
     private static final Random RANDOM_GENERATOR = new Random();
     private static final int MAX_QUANTITY = 1000;
     private static final int MAX_PRICE = 100;
+    private static final int PRICE1 = 10;
+    private static final int AMOUNT1 = 5;
+    private static final int EXPECTED1 = 50;
+    private static final int PRICE2 = 15;
+    private static final int AMOUNT2 = 3;
+    private static final int PRICE3 = 7;
+    private static final int AMOUNT3 = 4;
+    private static final int EXPECTED2 = 2;
 
     private FlowerBucket flowerBucket;
 
@@ -32,25 +44,25 @@ public class FlowerBucketTest {
     @Test
     public void testAddFlowerPack() {
         Flower flower = new Rose();
-        flower.setPrice(10);
-        FlowerPack flowerPack = new FlowerPack(flower, 5);
+        flower.setPrice(PRICE1);
+        FlowerPack flowerPack = new FlowerPack(flower, AMOUNT1);
         flowerBucket.add(flowerPack);
-        Assertions.assertEquals(50, flowerBucket.getPrice());
+        Assertions.assertEquals(EXPECTED1, flowerBucket.getPrice());
     }
 
     @Test
     public void testGetAllFlowerTypes() {
         Flower rose = new Rose();
-        rose.setPrice(15);
-        FlowerPack rosePack = new FlowerPack(rose, 3);
+        rose.setPrice(PRICE2);
+        FlowerPack rosePack = new FlowerPack(rose, AMOUNT2);
         Flower chamomile = new Flower();
-        chamomile.setPrice(7);
+        chamomile.setPrice(PRICE3);
         chamomile.setType(FlowerType.CHAMOMILE);
-        FlowerPack chamomilePack = new FlowerPack(chamomile, 4);
+        FlowerPack chamomilePack = new FlowerPack(chamomile, AMOUNT3);
         flowerBucket.add(rosePack);
         flowerBucket.add(chamomilePack);
         List<FlowerType> flowerTypes = flowerBucket.getAllFlowerTypes();
-        Assertions.assertEquals(2, flowerTypes.size());
+        Assertions.assertEquals(EXPECTED2, flowerTypes.size());
         Assertions.assertTrue(flowerTypes.contains(FlowerType.ROSE));
         Assertions.assertTrue(flowerTypes.contains(FlowerType.CHAMOMILE));
     }

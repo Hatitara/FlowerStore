@@ -3,32 +3,33 @@ import flower.store.Flower;
 import flower.store.FlowerColor;
 import flower.store.FlowerType;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assertions;
 
 public class ChamomileTest {
+    Double TEST = 5.0;
 
     @Test
     public void testDefaultConstructor() {
         Chamomile chamomile = new Chamomile();
-        assertEquals(FlowerType.CHAMOMILE, chamomile.getType());
+        Assertions.assertEquals(FlowerType.CHAMOMILE, chamomile.getType());
     }
 
     @Test
     public void testCopyConstructor() {
         Flower originalFlower = new Flower();
         originalFlower.setColor(FlowerColor.WHITE);
-        originalFlower.setPrice(5.0);
+        originalFlower.setPrice(TEST);
         originalFlower.setType(FlowerType.CHAMOMILE);
         Chamomile chamomile = new Chamomile(originalFlower);
-        assertEquals(FlowerType.CHAMOMILE, chamomile.getType());
-        assertEquals("#FFFFFF", chamomile.getColor());
-        assertEquals(5.0, chamomile.getPrice());
+        Assertions.assertEquals(FlowerType.CHAMOMILE, chamomile.getType());
+        Assertions.assertEquals(FlowerColor.WHITE.getCode(), chamomile.getColor());
+        Assertions.assertEquals(TEST, chamomile.getPrice());
     }
 
     @Test
     public void testSetType() {
         Chamomile chamomile = new Chamomile();
         chamomile.setType(FlowerType.ROSE);
-        assertEquals(FlowerType.ROSE, chamomile.getType());
+        Assertions.assertEquals(FlowerType.ROSE, chamomile.getType());
     }
 }

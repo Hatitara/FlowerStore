@@ -6,6 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TulipTest {
+    private static final int TEN = 10;
+    private static final int NUMBER = 15;
     private Tulip tulip;
 
     @BeforeEach
@@ -20,7 +22,7 @@ public class TulipTest {
 
     @Test
     public void testCopyConstructor() {
-        tulip.setPrice(10);
+        tulip.setPrice(TEN);
         tulip.setColor(FlowerColor.RED);
 
         Tulip tulipCopy = new Tulip(tulip);
@@ -37,7 +39,7 @@ public class TulipTest {
 
     @Test
     public void testSetPrice() {
-        tulip.setPrice(15);
-        Assertions.assertEquals(15, tulip.getPrice());
+        tulip.setPrice(NUMBER);
+        Assertions.assertEquals(NUMBER, tulip.getPrice());
     }
 }

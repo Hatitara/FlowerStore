@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class RoseTest {
+    private static final int TEN = 10;
     private Rose rose;
 
     @BeforeEach
@@ -20,9 +21,9 @@ public class RoseTest {
 
     @Test
     public void testConstructorWithParams() {
-        rose.setPrice(10.0);
+        rose.setPrice(TEN);
         rose.setColor(FlowerColor.RED);
-        Assertions.assertEquals(10.0, rose.getPrice());
+        Assertions.assertEquals(TEN, rose.getPrice());
         Assertions.assertEquals(FlowerColor.RED.getCode(), rose.getColor());
     }
 

@@ -8,10 +8,12 @@ import org.junit.jupiter.api.Test;
 
 public class FlowerPackTest {
 
-    private Flower flower;
-    private FlowerPack flowerPack;
     private static final double PRICE_PER_FLOWER = 5.0;
     private static final int QUANTITY = 10;
+    private static final int NUMBER1 = 15;
+    private static final int NUMBER2 = 8;
+    private Flower flower;
+    private FlowerPack flowerPack;
 
     @BeforeEach
     public void setUp() {
@@ -28,7 +30,8 @@ public class FlowerPackTest {
 
     @Test
     public void testGetPackFlowerType() {
-        Assertions.assertEquals(FlowerType.ROSE, flowerPack.getPackFlowerType());
+        Assertions.assertEquals(FlowerType.ROSE,
+                flowerPack.getPackFlowerType());
     }
 
     @Test
@@ -36,10 +39,10 @@ public class FlowerPackTest {
         Assertions.assertEquals(flower, flowerPack.getFlower());
         Assertions.assertEquals(QUANTITY, flowerPack.getCount());
         Flower newFlower = new Rose();
-        newFlower.setPrice(8.0);
+        newFlower.setPrice(NUMBER2);
         flowerPack.setFlower(newFlower);
-        flowerPack.setCount(15);
+        flowerPack.setCount(NUMBER1);
         Assertions.assertEquals(newFlower, flowerPack.getFlower());
-        Assertions.assertEquals(15, flowerPack.getCount());
+        Assertions.assertEquals(NUMBER1, flowerPack.getCount());
     }
 }
